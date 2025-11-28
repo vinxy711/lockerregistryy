@@ -69,3 +69,7 @@ In short:
 
 ```solidity
 //paste your code# lockerregistryy
+=======
+
+
+>>>>>>> 079ad5cb (Initial commit: pushed entire project)
