@@ -5,7 +5,8 @@
 Explorer Link:  
 https://coston2-explorer.flare.network/address/0xca932D4bd5e97771b8297AFe7518D85E509Efcd3
 
-<img width="1470" height="956" alt="Screenshot 2025-11-28 at 13 47 55" src="https://github.com/user-attachments/assets/ff75635e-ac07-45d4-a16b-512530bffd72" />
+
+<img width="2940" height="1912" alt="image" src="https://github.com/user-attachments/assets/f4901a4a-4823-447c-8188-1c2ae6be541e" />
 
 
 ---
