@@ -1,75 +1,72 @@
-# 🔐 License Registry – Simple Solidity License Management
+# License Registry – Smart Contract + Frontend Integration
 
-A beginner-friendly **Solidity smart contract** that allows issuing, revoking, and verifying digital licenses on the blockchain.  
-This project is perfect for learning **Solidity**, **events**, **modifiers**, and **mapping-based registries**.
+## 📍 Contract Address  
+**0xca932D4bd5e97771b8297AFe7518D85E509Efcd3**  
+Explorer Link:  
+https://coston2-explorer.flare.network/address/0xca932D4bd5e97771b8297AFe7518D85E509Efcd3
 
 ---
 
-## 🚀 Project Description
+## 📘 Project Description  
+This project is a **License Registry System** built on the **Flare Network (Coston2 Testnet)**.  
+It allows an owner to:
 
-**LicenseRegistry** is a simple, easy-to-understand smart contract for managing licenses on-chain.  
-It allows a contract owner to:
-
-- Issue licenses to addresses  
-- Revoke previously issued licenses  
+- Issue licenses to any address  
+- Revoke licenses  
 - Update metadata  
+- Verify whether a license is valid  
+- Fetch license details  
+
+A simple UI (Next.js + Wagmi + Viem) is included to interact with the contract.
+
+---
+
+## ⚙️ What the Project Does  
+- Stores licenses on-chain using a `keccak256(id)` mapping.  
+- Ensures licenses are tamper-proof and transparent.  
+- Enables anyone to check license validity.  
+- Supports dynamic metadata updates (IPFS/JSON).  
+- Integrates with a frontend for issuing + revoking.
+
+---
+
+## ⭐ Features  
+### 🔐 Owner Controls  
+- Issue license  
+- Revoke license  
 - Transfer ownership  
-
-Anyone can verify license validity or retrieve full license details.
-
-This project is designed for **students, hackathon participants, and Web3 beginners** who want to understand how real-world registries are built using Solidity.
-
----
-
-## 🧠 What It Does
-
-- Stores licenses using a unique `id`
-- Keeps holder address, timestamp, validity, and metadata
-- Uses `keccak256(id)` to ensure efficient storage
-- Emits events for issue/revoke/ownership transfer
-- Makes validation and verification public
-
-In short:  
-**It works like a blockchain-powered license/ID manager.**
-
----
-
-## ✨ Features
-
-### ✔ Owner-Only Functions
-- Issue a new license  
-- Revoke a license  
 - Update license metadata  
-- Transfer contract ownership  
 
-### ✔ Public Functions
-- Check if a license is valid  
-- Get full license details (holder, issuedAt, id, metadata)
+### 🔎 Public Features  
+- Check license validity  
+- Fetch complete license details
 
-### ✔ Beginner-Friendly Design
-- No constructor parameters  
-- Clean data structures  
-- Gas-efficient mapping (hash → struct)  
-- Clear events for frontend integrations  
-
----
-
-## 📜 Deployed Smart Contract
-
-**Transaction Hash:**  
-`0x306b50ba8c8b98524154f78a82617ceb5502de4bc91116867140275fc2466df8`
-
-**Deployed Contract Link:**  
-👉 **XXX**  
-(Replace this later with your actual block explorer URL)
+### 🌐 Frontend Features  
+- Wallet connection  
+- Issue license from UI  
+- Revoke license  
+- View transaction status  
+- Error handling + loading UI  
 
 ---
 
-## 🧩 Smart Contract Code
+## 🚀 How It Solves Problems  
+Traditional license systems rely on centralized databases, which are:
 
+- Easy to tamper  
+- Hard to audit  
+- Prone to single-point failures  
+
+This on-chain License Registry solves these problems by:
+
+### ✔ Storing all licenses transparently on blockchain  
+### ✔ Providing trustless verification  
+### ✔ Allowing easy integration with any app  
+### ✔ Offering automated proof of authenticity  
+### ✔ Removing the need for centralized storage  
+
+---
+
+## 📦 Smart Contract Code  
 ```solidity
-//paste your code# lockerregistryy
-=======
-
-
->>>>>>> 079ad5cb (Initial commit: pushed entire project)
+//paste your code

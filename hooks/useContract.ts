@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from "react"
-import { useAccount, useWriteContract, useWaitForTransactionReceipt, readContract } from "wagmi"
+import { useAccount, useWriteContract, useWaitForTransactionReceipt, useReadContract } from "wagmi"
 import { contractABI, contractAddress } from "@/lib/contract"
 
 export const useLicenseContract = () => {
@@ -12,10 +12,21 @@ export const useLicenseContract = () => {
 
   const { isLoading: isConfirming, isSuccess: isConfirmed } = useWaitForTransactionReceipt({ hash })
 
+  const { data: validityResult, refetch: refetchValidity } = useReadContract({
+    address: contractAddress,
+    abi: contractABI,
+    functionName: "isValid",
+    args: [""],
+    query: { enabled: false },
+  })
+
   useEffect(() => {}, [isConfirmed])
 
   const issueLicense = async (id: string, holder: string, metadata: string) => {
     if (!id || !holder) return
+
+    // Ensure holder is a valid 0x-prefixed address
+    const formattedHolder = (holder.startsWith('0x') ? holder : `0x${holder}`) as `0x${string}`
 
     try {
       setIsLoading(true)
@@ -23,7 +34,7 @@ export const useLicenseContract = () => {
         address: contractAddress,
         abi: contractABI,
         functionName: "issueLicense",
-        args: [id, holder, metadata],
+        args: [id, formattedHolder, metadata],
       })
     } catch (err) {
       console.error("Error issuing license:", err)
@@ -53,18 +64,7 @@ export const useLicenseContract = () => {
   }
 
   const checkLicenseValidity = async (id: string) => {
-    try {
-      const result = await readContract({
-        address: contractAddress,
-        abi: contractABI,
-        functionName: "isValid",
-        args: [id],
-      })
-      return result
-    } catch (err) {
-      console.error("Error checking license:", err)
-      throw err
-    }
+    return await refetchValidity()
   }
 
   return {
